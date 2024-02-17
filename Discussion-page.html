@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discussion</title>
+    <link rel="icon" href="./img/white logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/stylediscussion.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div id="nav">
+        <a href="index.html" target="_self"><img src="./img/white logo.png" alt="Logo"></a>
+        <div class="logo-title">FISH KEEP</div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+              <a href="Info.html">Fish Pets</a>
+              <ul class="dropdown">
+                <li><a href="Sub/Betta.html">Betta</a></li>
+                <li><a href="Sub/Goldfish.html">Goldfish</a></li>
+                <li><a href="Sub/Molly.html">Molly</a></li>
+                <li><a href="Sub/Neon Tetra.html">Neon Tetra</a></li>
+                <li><a href="Sub/Platy.html">Platy</a></li>
+                <li><a href="Sub/Guppy.html">Guppy</a></li>
+                <li><a href="Sub/Danios.html">Danios</a></li>
+                <li><a href="Sub/Angelfish.html">Angelfish</a></li>
+                <li><a href="Sub/Barb.html">Barb</a></li>
+              </ul>
+           </li>
+           <li><a href="Discussion-page.html">Discussion</a></li>
+           <li><a href="index.html#bottom-section">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+   
+   <main>
+    <div class="topics">
+      <h2>Topics</h2>
+      <nav>
+        <ul class="dropdown">
+          <div>
+            <li><a href="Sub/Betta.html">Betta</a></li>
+            <li><a href="Sub/Goldfish.html">Goldfish</a></li>
+            <li><a href="Sub/Molly.html">Molly</a></li>
+            <li><a href="Sub/Neon Tetra.html">Neon Tetra</a></li>
+            <li><a href="Sub/Platy.html">Platy</a></li>
+            <li><a href="Sub/Guppy.html">Guppy</a></li>
+            <li><a href="Sub/Danios.html">Danios</a></li>
+            <li><a href="Sub/Angelfish.html">Angelfish</a></li>
+            <li><a href="Sub/Barb.html">Barb</a></li>
+          </ul>
+    </div>
+    
+    <div class="post-content">
+      <div class="post-form">
+        <h2>Post Suggestion/Question</h2>
+        <textarea name="content" placeholder="Enter Here:"></textarea>
+        <button onclick="createpost()">Create Post</button>
+      </div>
+      <div class="posted">
+        
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+    
+            // Select the "Post Suggestion/Question" section
+            const postSuggestionSection = document.querySelector('.topics');
+    
+            // Select all posts
+            const posts = document.querySelectorAll('.posted');
+    
+            // Convert NodeList to array for easier manipulation
+            const postsArray = Array.from(posts);
+    
+            // Sort posts based on the number of likes (descending order)
+            postsArray.sort(function (a, b) {
+              const likeCountA = parseInt(a.querySelector('.post-rating-count').textContent);
+              const likeCountB = parseInt(b.querySelector('.post-rating-count').textContent);
+              return likeCountB - likeCountA;
+            });
+    
+            // Find the index of the "Post Suggestion/Question" section
+            const index = postsArray.findIndex(post => post.contains(postSuggestionSection));
+    
+            // Insert the highest liked post just before the "Post Suggestion/Question" section
+            if (index !== -1 && index < postsArray.length - 1) {
+              const highestLikedPost = postsArray[index];
+              const nextSibling = postSuggestionSection.nextSibling;
+              highestLikedPost.parentNode.insertBefore(highestLikedPost, nextSibling);
+            }
+          });
+    
+          function postComment() {
+            // Get the comment text from the textarea
+            var commentText = document.getElementById('comment-text').value;
+
+            // Check if the comment is not empty
+            if (commentText.trim() !== '') {
+              // Create a new comment element
+              var newComment = document.createElement('div');
+              newComment.className = 'comment';
+              newComment.textContent = commentText;
+    
+               // Append the new comment to the comments container
+              document.getElementById('comments-container').appendChild(newComment);
+    
+              // Clear the textarea
+              document.getElementById('comment-text').value = '';
+            }
+          }
+    
+          function createpost() {
+            // Get the post content from the textarea
+            var postContent = document.querySelector('.post-form textarea').value;
+    
+            // Check if the post content is not empty
+            if (postContent.trim() !== '') {
+              // Generate a unique identifier for the post
+              var postId = 'post-' + Date.now();
+    
+              // Create a new post element
+              var newPost = document.createElement('div');
+              newPost.className = 'posted';
+              newPost.id = postId; // Set the unique identifier for the post
+    
+              var newPostHTML = `
+              <h4>Anonymous</h4>
+              <div class="info">
+                <span>• Just now</span>
+                </div>
+                <p>${postContent}</p>
+               <div class="post-ratings-container">
+                <div class="post-rating">
+                  <span class="post-rating-button material-icons like-button">thumb_up</span>
+                  <span class="post-rating-count">0</span>
+                </div>
+                <div class="post-rating">
+                  <span class="post-rating-button material-icons dislike-button">thumb_down</span>
+                  <span class="post-rating-count">0</span>
+                </div>
+              </div>
+              
+              <div id="comments-container-${postId}"> <!-- Unique ID for comments container -->
+                <!-- Existing comments will be displayed here -->
+              </div>
+              
+              <!-- Inside the newPostHTML variable -->
+              <div id="view-more-comments-${postId}" class="view-more-comments" style="display: none;">
+                <button onclick="toggleCommentsVisibility('${postId}')">View More Comments</button>
+              </div>
+              
+              <div id="comment-form-${postId}"> <!-- Unique ID for comment form -->
+                <textarea id="comment-text-${postId}" placeholder="Type your comment..."></textarea>
+                <button onclick="postComment('${postId}')">Post Comment</button>
+              </div>    
+              `;
+
+              newPost.innerHTML = newPostHTML;
+              
+              // Find the first post box
+              var firstPost = document.querySelector('.posted');
+              
+              // Insert the new post after the first post box
+              firstPost.parentNode.insertBefore(newPost, firstPost.nextSibling);
+    
+              // Clear the textarea
+              document.querySelector('.post-form textarea').value = '';
+    
+              // Add event listeners for like and dislike buttons
+              newPost.querySelector('.like-button').addEventListener('click', function () {
+                var likeCount = newPost.querySelector('.post-rating-count');
+                var dislikeButton = newPost.querySelector('.dislike-button');
+    
+                if (this.classList.contains('post-rating-selected')) {
+                  // Button was already liked, so decrease count and remove selection
+                  likeCount.textContent = parseInt(likeCount.textContent) - 1;
+                  this.classList.remove('post-rating-selected');
+                  this.style.color = ''; // Remove color highlight
+                } else {
+                  // Button was not liked, so increase count and add selection
+                  likeCount.textContent = parseInt(likeCount.textContent) + 1;
+                  this.classList.add('post-rating-selected');
+                  this.style.color = '#cb3401'; // Highlight in orange
+    
+                  // If dislike button is already selected, remove its selection
+                  if (dislikeButton.classList.contains('post-rating-selected')) {
+                    var dislikeCount = newPost.querySelectorAll('.post-rating-count')[1];
+                    dislikeCount.textContent = parseInt(dislikeCount.textContent) - 1;
+                    dislikeButton.classList.remove('post-rating-selected');
+                    dislikeButton.style.color = ''; // Remove color highlight
+                  }
+                }
+              });
+    
+              newPost.querySelector('.dislike-button').addEventListener('click', function () {
+                var dislikeCount = newPost.querySelectorAll('.post-rating-count')[1];
+                var likeButton = newPost.querySelector('.like-button');
+    
+                if (this.classList.contains('post-rating-selected')) {
+                   // Button was already disliked, so decrease count and remove selection
+                   dislikeCount.textContent = parseInt(dislikeCount.textContent) - 1;
+                  this.classList.remove('post-rating-selected');
+                   this.style.color = ''; // Remove color highlight
+                 } else {
+                   // Button was not disliked, so increase count and add selection
+                  dislikeCount.textContent = parseInt(dislikeCount.textContent) + 1;
+                  this.classList.add('post-rating-selected');
+                  this.style.color = '#cb3401'; // Highlight in orange
+    
+                  // If like button is already selected, remove its selection
+                  if (likeButton.classList.contains('post-rating-selected')) {
+                    var likeCount = newPost.querySelector('.post-rating-count');
+                    likeCount.textContent = parseInt(likeCount.textContent) - 1;
+                    likeButton.classList.remove('post-rating-selected');
+                    likeButton.style.color = '';
+                  }
+                }
+              });
+             }
+           }
+    
+          function postComment(postId) {
+            // Get the comment text from the textarea
+            var commentText = document.getElementById(`comment-text-${postId}`).value;
+    
+            // Check if the comment is not empty
+            if (commentText.trim() !== '') {
+               // Create a new comment element
+               var newComment = document.createElement('div');
+              newComment.className = 'comment';
+              newComment.textContent = commentText;
+    
+              // Get the comments container of the specific post
+              var commentsContainer = document.getElementById(`comments-container-${postId}`);
+    
+              // Insert the new comment at the top of the comments container
+              commentsContainer.insertBefore(newComment, commentsContainer.firstChild);
+    
+              // Show "View More Comments" button if there are more than four comments
+              if (commentsContainer.children.length > 4) {
+                var viewMoreButton = document.getElementById(`view-more-comments-${postId}`);
+                viewMoreButton.style.display = 'block';
+              }
+    
+              // Hide older comments if there are more than four comments
+              if (commentsContainer.children.length > 4 && !commentsContainer.classList.contains('show-all-comments')) {
+                hideOlderComments(commentsContainer);
+              }
+    
+               // Clear the textarea
+              document.getElementById(`comment-text-${postId}`).value = '';
+            }
+          }
+    
+          function hideOlderComments(container) {
+            var comments = container.children;
+            for (var i = 4; i < comments.length; i++) {
+              comments[i].style.display = 'none';
+            }
+          }
+    
+          function toggleCommentsVisibility(postId) {
+           var commentsContainer = document.getElementById(`comments-container-${postId}`);
+            var viewMoreButton = document.getElementById(`view-more-comments-${postId}`);
+    
+            if (commentsContainer.classList.contains('show-all-comments')) {
+              // Hide older comments
+               hideOlderComments(commentsContainer);
+               commentsContainer.classList.remove('show-all-comments');
+               viewMoreButton.textContent = 'View More Comments';
+            } else {
+              // Show all comments
+              var comments = commentsContainer.children;
+              for (var i = 4; i < comments.length; i++) {
+                comments[i].style.display = 'block';
+              }
+              commentsContainer.classList.add('show-all-comments');
+              viewMoreButton.textContent = 'Hide Older Comments';
+             }
+          }
+        </script>
+        <script src="/js/script.js"></script>
+      </main>
+    </div>
+  </body>
+</html>

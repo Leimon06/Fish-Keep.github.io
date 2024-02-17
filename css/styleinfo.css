@@ -1,0 +1,594 @@
+html{
+  height: 100%;
+}
+body {
+  background-image: url(../img/blackbg.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+}
+  
+/* Navigation Bar */
+  
+#nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  font-size: 15px;
+  font-weight: 500;
+  background-image: radial-gradient(rgba(65, 74, 76, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+#nav img {
+  width: 45px;
+  border-radius: 50%;
+}
+
+.logo-title {
+  color: white;
+  margin-right: 1300px;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  display: inline-block;
+  position: relative;
+}
+
+nav ul li a {
+  display: block;
+  padding: 10px 30px;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav ul li:hover {
+  background: #cb3401;
+}
+
+nav ul li ul.dropdown {
+  width: 100%;
+  background: black;
+  position: absolute;
+  z-index: 999;
+  display: none;
+}
+
+nav ul li:hover ul.dropdown {
+  display: block;
+}
+
+  
+.image-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+  
+.image-container a {
+  margin: 10px;
+  text-decoration: none;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  border-radius: 20px;
+}
+  
+.image-container img {
+  width: 400px;
+  height: 400px;
+  border-radius: 20px;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+  
+.image-container a:hover img {
+  transform: scale(1.1);
+}
+  
+.image-container p {
+  text-align: center;
+  color: white;
+}
+
+/* betta */
+.Titlebetta {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  padding-top: 10px;
+  margin-bottom: 40px;
+}
+
+.BettaImage {
+  float: left;
+  margin-right: 10px;
+  margin-left: 380px;
+  margin-bottom: 5px;
+  padding: 2px;
+}
+
+.BettaImage a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.BettaImage img {
+  width: 350px;
+  height: 300px; 
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.BettaImage a:hover img {
+  transform: scale(1.1);
+}
+
+.bettadescription {
+  font-size: 18px;
+  line-height: 1.5;
+  color: white; 
+  max-width: 790px;
+  padding: 65px;
+  margin-left: 750px;
+  margin-right: 10px;
+  background-color: #3a3b3c;
+  border: 1px solid white; 
+  border-radius: 10px; 
+}
+
+.SpeciesOverview {
+  margin-left: 385px;
+  margin-right: 10px;
+  margin-top: 45px;
+  max-width: 1260px; 
+  padding: 10px;
+  background-color: #3a3b3c;
+  border: 1px solid white; 
+  border-radius: 10px; 
+}
+
+.SpeciesOverview h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-top: 10px;
+  margin-left: 150px;
+  margin-right: 750px;
+  margin-top: 100px;
+}
+
+.SpeciesOverview p {
+  color: white;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-left: 100px;
+  margin-top: 15px;
+}
+
+.image-differentsbetta {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: -250px;
+}
+
+.image-differentsbetta a {
+  margin: 20px;
+  text-decoration: none;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  border-radius: 20px;
+}
+
+.image-differentsbetta img {
+  width: 700px;
+  height: 400px;
+  border-radius: 20px;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+  
+.image-differentsbetta a:hover img {
+  transform: scale(1.1);
+}
+
+.Characteristics {
+  margin-left: 365px;
+  margin-right: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  max-width: 1055px; 
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-top: 15px;
+}
+.container {
+	position: absolute;
+	transform: translate(-50%, -50%);
+  width: 350px;
+  height: 300px;
+  max-width: 1055px; 
+  margin-top: 120px;
+  margin-left: 560px;
+}
+
+table {
+	width: 800px;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  width: 400px;
+  height: 400px;
+  margin-top: 10px;
+}
+
+th,
+td {
+	padding: 15px;
+	background-color: rgba(255,255,255,0.2);
+	color: #fff;
+}
+
+th {
+	text-align: left;
+}
+
+tbody {
+	tr {
+		&:hover {
+			background-color: rgba(255,255,255,0.3);
+		}
+	}
+	td {
+		position: relative;
+		&:hover {
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: -9999px;
+				bottom: -9999px;
+				background-color: rgba(255,255,255,0.2);
+				z-index: -1;
+			}
+		}
+	}
+}
+
+.OriginandDistribution {
+  font-size: 18px;
+  line-height: 1.5;
+  color: white; 
+  max-width: 840px;
+  padding: 10px;
+  margin-left: 800px;
+  margin-top: -20px;
+  margin-right: 100px;
+  background-color: #3a3b3c;
+  border: 1px solid white; 
+  border-radius: 10px; 
+}
+
+.OriginandDistribution h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-top: 0;
+}
+
+.OriginandDistribution p {
+  color: white;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.ColorsandMarkings{
+  font-size: 18px;
+  line-height: 1.5;
+  color: white; 
+  max-width: 840px;
+  padding: 10px;
+  padding-bottom: 185px;
+  margin-left: 800px;
+  margin-top: 10px;
+  margin-right: 100px;
+  background-color: #3a3b3c;
+  border: 1px solid white; 
+  border-radius: 10px;
+}
+
+.ColorsandMarkings h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-top: 0;
+}
+
+.ColorsandMarkings p {
+  color: white;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.Tankmates{
+  font-size: 18px;
+  line-height: 1.5;
+  color: white; 
+  max-width: 1260px; 
+  padding: 10px;
+  margin-left: 383px;
+  margin-top: 20px;
+  margin-right: 100px;
+  background-color: #3a3b3c;
+  border: 1px solid white; 
+  border-radius: 10px;
+}
+
+.Tankmates h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-top: 10px
+}
+
+.Tankmates p {
+  color: white;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.BettaHabitatandCare{
+  font-size: 18px;
+  line-height: 1.5;
+  color: white; 
+  max-width: 1260px;
+  padding: 10px;
+  margin-left: 383px;
+  margin-top: 10px;
+  margin-right: 100px;
+  padding-bottom: 50px;
+  background-color: #3a3b3c;
+  border: 1px solid white; 
+  border-radius: 10px;
+}
+
+.BettaHabitatandCare h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-top: 0;
+}
+
+.BettaHabitatandCare p {
+  color: white;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.image-BettaHabitatandCare {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.image-container a {
+  margin: 20px;
+  text-decoration: none;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  border-radius: 20px;
+}
+
+.image-BettaHabitatandCare img {
+  width: 400px;
+  height: 400px;
+  border-radius: 20px;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+  
+.image-BettaHabitatandCare a:hover img {
+  transform: scale(1.1);
+}
+
+.DietandFeeding {
+  font-size: 18px;
+  line-height: 1.5;
+  color: white; 
+  max-width: 1260px; 
+  padding: 10px;
+  margin-left: 383px;
+  margin-top: 10px;
+  margin-right: 100px;
+  background-color: #3a3b3c;
+  border: 1px solid white; 
+  border-radius: 10px;
+}
+
+.DietandFeeding h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-top: 0;
+}
+
+.DietandFeeding p {
+  color: white;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.GenderDifferences{
+  font-size: 18px;
+  line-height: 1.5;
+  color: white; 
+  max-width: 1260px;
+  padding: 10px;
+  margin-left: 383px;
+  margin-top: 10px;
+  margin-right: 100px;
+  background-color: #3a3b3c;
+  border: 1px solid white; 
+  border-radius: 10px;
+}
+
+.GenderDifferences h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-top: 0;
+}
+
+.GenderDifferences p {
+  color: white;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.image-GenderDifferences {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.image-GenderDifferences a {
+  margin: 20px;
+  text-decoration: none;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  border-radius: 20px;
+}
+
+.image-GenderDifferences img {
+  width: 400px;
+  height: 400px;
+  border-radius: 20px;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+  
+.image-GenderDifferences a:hover img {
+  transform: scale(1.1);
+}
+
+.BreedingtheBetta{
+  font-size: 18px;
+  line-height: 1.5;
+  color: white; 
+  max-width: 1260px;
+  padding: 10px;
+  margin-left: 383px;
+  margin-top: 10px;
+  margin-right: 100px;
+  background-color: #3a3b3c;
+  border: 1px solid white; 
+  border-radius: 10px;
+}
+
+.BreedingtheBetta h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-top: 0;
+}
+
+.BreedingtheBetta p {
+  color: white;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.image-breedingbetta {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.image-breedingbetta a {
+  margin: 20px;
+  text-decoration: none;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  border-radius: 20px;
+}
+
+.image-breedingbetta img {
+  width: 600px;
+  height: 500px;
+  border-radius: 20px;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+  
+.image-breedingbetta a:hover img {
+  transform: scale(1.1);
+}
+
+.YouTubeLinks {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  padding-top: 10px;
+  margin: 10px;
+  margin-bottom: 40px;
+}
+
+.YouTubeLinks1 {
+  flex-direction: row;
+  display: flex;
+  align-items: stretch;
+  color: white;
+  margin-bottom: 10px;
+  padding: 10px;
+  padding-bottom: 140px;
+  margin-left: 400px;
+  margin-top: 0;
+  margin-right: 100px;
+}
+
+.YouTubeLinks2 {
+  flex-direction: row;
+  display: flex;
+  align-items: stretch;
+  color: white;
+  margin-bottom: 10px;
+  padding: 10px;
+  padding-bottom: 140px;
+  margin-left: 150px;
+  margin-top: -10px;
+  margin-right: 200px;
+}
+

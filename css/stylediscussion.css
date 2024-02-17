@@ -1,0 +1,369 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-image: url(../img/blackbg.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+}
+
+/* Navigation Bar */
+#nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  font-size: 15px;
+  font-weight: 500;
+  background-image: radial-gradient(rgba(65, 74, 76, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+#nav img {
+  width: 45px;
+  border-radius: 50%;
+}
+
+.logo-title {
+  color: white;
+  margin-right: 1300px;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  display: inline-block;
+  position: relative;
+}
+
+nav ul li a {
+  display: block;
+  padding: 10px 30px;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav ul li:hover {
+  background: #cb3401;
+}
+
+nav ul li ul.dropdown {
+  width: 100%;
+  background: black;
+  position: absolute;
+  z-index: 999;
+  display: none;
+}
+
+nav ul li:hover ul.dropdown {
+  display: block;
+}
+
+/* side bar and posting */
+main {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+/* Topics */
+.topics {
+  width: 20%;
+  height: 500px;
+  /* Set a fixed height */
+  overflow: auto;
+  /* Add overflow property to enable scrolling if content exceeds the height */
+  background-color: #242526;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+/* Ensure the list inside topics doesn't overflow */
+.topics ul {
+  max-height: 100%;
+  overflow: auto;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: block;
+  position: relative;
+}
+
+nav ul li a {
+  display: block;
+  padding: 10px 30px;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav ul li:hover {
+  background: #cb3401;
+}
+
+nav ul li ul.dropdown {
+  width: 100%;
+  background: black;
+  position: absolute;
+  z-index: 999;
+  display: none;
+  left: 100%;
+  /* Adjust this value as needed */
+  top: 0;
+}
+
+nav ul li:hover ul.dropdown {
+  display: block;
+}
+
+nav ul li ul.dropdown li {
+  display: block;
+}
+
+.topics p {
+  margin-bottom: 0;
+  color: white;
+}
+
+.post-content {
+  width: 75%;
+  background-color: #242526;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Post */
+.post-form {
+  max-width: 600px;
+  margin: 20px 0;
+  background-color: #3a3b3c;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-form h2 {
+  color: white;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.post-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.post-form input[type="submit"] {
+  display: block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #e4e6eb;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.post-form input[type="submit"]:hover {
+  background-color: #cb3401;
+}
+
+/* Posted */
+
+.posted {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #3a3b3c;
+}
+
+.posted h4 {
+  margin-top: 0;
+  color: white;
+}
+
+.posted p {
+  margin-bottom: 0;
+  color: white;
+}
+
+.posted .info {
+  font-size: 12px;
+  color: #b0b3b8;
+}
+
+.posted .info span {
+  margin-right: 10px;
+}
+
+.posted .actions {
+  margin-top: 10px;
+}
+
+.postedactions a {
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: black;
+  background-color: #e4e6eb;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.postedactions a:hover {
+  background-color: #cb3401;
+}
+
+
+.post {
+  width: 90px;
+  font-family: 'Lexend', sans-serif;
+
+}
+
+.post-image {
+  display: block;
+  width: 100%;
+}
+
+.post-ratings-container {
+  display: flex;
+  justify-content: end;
+  padding: 12px 0;
+}
+
+.post-rating {
+  display: flex;
+  align-items: center;
+  cursor: default;
+}
+
+.post-rating:not(:last-child) {
+  margin-right: 12px;
+}
+
+.post-rating-selected>.post-rating-button,
+.post-rating-selected>.post-rating-count {
+  color: #cb3401;
+}
+
+.post-rating-button {
+  margin-right: 6px;
+  cursor: pointer;
+  color: white;
+}
+
+.post-rating:not(.post-rating-selected)>.post-rating-button:hover {
+  color: #000000;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+#comments-container {
+  margin-bottom: 20px;
+
+}
+
+.comment {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #e4e6eb;
+}
+
+#comment-form {
+  margin-top: 20px;
+
+}
+
+#comment-text {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  /* Horizontally center the content */
+  align-items: center;
+  /* Vertically center the content */
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+
+
+
+
+.post-rating {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  /* Move the rating container to the left */
+}
+
+.like-button,
+.dislike-button {
+  margin-right: 5px;
+  /* Add some space between the buttons */
+}
+
+
+
+
+.comments-container .comment {
+  display: none;
+  /* Hide all comments initially */
+}
+
+.comments-container.show-all-comments .comment {
+  display: block;
+  /* Show all comments when the class is applied */
+}

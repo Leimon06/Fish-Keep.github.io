@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fish keep</title>
+    <link rel="icon" href="./img/white logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./Bootstrap/CSS/bootstrap-grid.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  
+  <body>
+    <!-- Header Section -->
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a href="#" target="_self"><img src="./img/white logo.png" alt="Logo"></a>
+          <a class="navbar-brand" href="index.html">Fish Keep</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="Info.html">Fish Pets</a>
+                <ul class="dropdown">
+                  <li><a href="Sub/Betta.html">Betta</a></li>
+                  <li><a href="Sub/Goldfish.html">Goldfish</a></li>
+                  <li><a href="Sub/Molly.html">Molly</a></li>
+                  <li><a href="Sub/Neon Tetra.html">Neon Tetra</a></li>
+                  <li><a href="Sub/Platy.html">Platy</a></li>
+                  <li><a href="Sub/Guppy.html">Guppy</a></li>
+                  <li><a href="Sub/Danios.html">Danios</a></li>
+                  <li><a href="Sub/Angelfish.html">Angelfish</a></li>
+                  <li><a href="Sub/Barb.html">Barb</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Discussion-page.html">Discussion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#bottom-section">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- ======= End Header Section ======= -->
+    
+    <!-- Search Bar -->
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="search input form-group">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search Fish Pets...">
+            <div id="autocompleteContainer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+     const fishNames = ["Betta", "Goldfish", "Molly", "Neon Tetra", "Platy", "Guppy", "Danios", "Angelfish", "Barb"];
+
+     // Function to filter fish names based on input
+     function filterFishNames(input) {
+      return fishNames.filter(name => name.toLowerCase().includes(input.toLowerCase()));
+     }
+
+     // Function to update autocomplete suggestions
+     function updateAutocompleteSuggestions(input) {
+       const autocompleteContainer = document.getElementById("autocompleteContainer");
+       autocompleteContainer.innerHTML = ""; // Clear previous suggestions
+
+       if (input.trim() !== "") { // Check if input is not empty
+         const filteredFishNames = filterFishNames(input);
+         filteredFishNames.forEach(name => {
+          const suggestion = document.createElement("div");
+          suggestion.textContent = name;
+          suggestion.classList.add("autocomplete-item");
+
+          // Add click event listener to fill input field with clicked suggestion and navigate to the corresponding page
+          suggestion.addEventListener("click", function () {
+            const fishLink = fishPages[name.toLowerCase()];
+            if (fishLink) {
+              window.location.href = fishLink;
+            }
+          });
+
+          autocompleteContainer.appendChild(suggestion);
+        });
+      }
+    }
+
+    // Function to handle input in search box
+    document.getElementById("searchInput").addEventListener("input", function () {
+      const input = this.value;
+      updateAutocompleteSuggestions(input);
+    });
+
+    // Array of fish names with corresponding page URLs
+    const fishPages = {
+      "betta": "Sub/Betta.html",
+      "goldfish": "Sub/Goldfish.html",
+      "molly": "Sub/Molly.html",
+      "neon tetra": "Sub/Neon Tetra.html",
+      "platy": "Sub/Platy.html",
+      "guppy": "Sub/Guppy.html",
+      "danios": "Sub/Danios.html",
+      "angelfish": "Sub/Angelfish.html",
+      "barb": "Sub/Barb.html"
+    };
+
+    // Function to handle search when Enter key is pressed
+    document.getElementById("searchInput").addEventListener("keypress", function (event) {
+      if (event.keyCode === 13) { // Check if Enter key is pressed
+        const enteredFishName = this.value.trim().toLowerCase(); // Convert to lowercase
+
+        if (fishPages.hasOwnProperty(enteredFishName)) {
+          const fishLink = fishPages[enteredFishName];
+          window.location.href = fishLink;
+        } else {
+          alert("Sorry, we couldn't find information for the entered fish.");
+        }
+      }
+    });
+    </script>
+   <!-- ======= End Search Bar ======= -->
+   <!-- Content Homepage -->
+   <div class="container-fluid">
+     <div class="row align-items-center py-5 g-5">
+       <div class="col-12 col-md-6">
+         <div class="text-center text-md-start">
+           <h1 class="display-md-2 display-4 fw-bold text-white pb-2">FISH KEEP</h1>
+           <p class="lead text-white">Welcome to Fish Keep, your ultimate resource for fish enthusiasts.
+             <br>Discover expert advice on fish care, feeding, maintenance, and species.
+             <br>Whether you're a beginner or an experienced keeper, we've got you covered.
+             <br>Find fish prices, join our community, and elevate your fish-keeping experience.
+             <br>Happy Fish Keeping!
+           </p><button class="cn"><a href="Info.html">Explore</a></button>
+         </div>
+       </div>
+     </div>
+   </div>
+   <!-- ======= End of Content HomePage ======= -->
+
+
+   <!-- Homepage Most Viewed -->
+   <div class="image-container fw-bold">
+     <div>
+       <p>Most Popular fish pet</p>
+     </div>
+
+     <a href="Sub/Goldfish.html" target="_self">
+       <img src="img/goldfish.jpg" alt="Goldfish">
+       <p>Goldfish</p>
+     </a>
+
+     <a href="Sub/Betta.html" target="_self">
+       <img src="img/betta.jpg" alt="Guppy">
+       <p>Betta</p>
+     </a>
+
+     <a href="Sub/Guppy.html" target="_self">
+       <img src="img/Guppy.png" alt="Molly">
+       <p>Guppy</p>
+     </a>
+   </div>
+   <!-- ======= End Homepage Most Viewed ======= -->
+
+
+   <!-- Bottom Section -->
+   <div class="bottom-section" id="bottom-section">
+     <div class="bottom-container">
+       <h2>About Us</h2>
+       <p class="abouttext">Welcome to Fish Keep, your ultimate resource for fish care! Our website offers valuable
+        information on fish care, feeding, and maintenance.
+        Whether you're a beginner or experienced fish keeper, Fish Keeper provides expert advice to ensure your fish
+        thrive.
+        Explore species info and join our community for discussions. Happy Fish Keeping!
+      </p>
+
+      <div class="section">
+        <h4>Our Passion for Pet Fish</h4>
+        <p>At FISHKEEP, our deep passion for aquatic life drives our commitment to providing the best care, support, and
+          information for fish enthusiasts.
+          Started from a basic interest in the beauty of fish species, our dedication has grown into a mission to ensure
+          the well-being of every pet fish.
+          Join us in celebrating the joy, peace, and natural beauty that pet fish bring into our lives.
+        </p>
+      </div>
+
+      <div class="section">
+        <h4>Committed to Quality</h4>
+        <p>
+          Committed to ensuring every pet fish's health and happiness, we prioritize their well-being in our selection
+          process.
+          Our dedicated team of knowledgeable store owners maintains excellent living conditions, meeting the unique
+          demands of various fish species.
+        </p>
+      </div>
+
+      <div class="section">
+        <h4>Our Mission</h4>
+        <p>
+          We strive to create a community of informed and passionate fish owners.
+          We empower users to build thriving aquatic environments mirroring natural habitats, offering educational
+          resources, personalized guidance, and a commitment to openness.
+        </p>
+      </div>
+
+      <div class="section">
+        <h4>Meet Our Team</h4>
+        <p>
+          Meet our team at FISHKEEP — a community of passionate aquarists, exotic fish experts, and enthusiasts.
+          With shared commitment and experience, we ensure proper care for every pet fish in our endorsed shops.
+          We're not just a team; we're a united community driven by our love for fish.
+        </p>
+      </div>
+
+      <div class="section">
+         <h4>Get in Touch</h4>
+         <p>
+          Connect with FISHKEEP for fish-keeping support, whether you're a beginner or an expert.
+          Join us in celebrating the beauty of pet fish and creating thriving environments for these incredible
+          creatures.
+         </p>
+       </div>
+     </div>
+   </div>
+   <!-- ======= End Bottom Section ======= -->
+
+
+   <!-- Footer Section -->
+   <footer>
+     <div class="Footer-section">
+       <h2>FISH KEEP</h2>
+       <p class="text">Your go-to resource for expert fish care advice. Whether a beginner or experienced keeper, we've
+        got you covered.
+        <br>Join our community for fish prices and elevate your fish-keeping experience. Happy Fish Keeping!
+      </p>
+     </div>
+     <div class="footer-bottom">
+       <p>copyright &copy;2023 Fish Keep. designed by <span>Group of FISHKEEP 2-IT1</span></p>
+     </div>
+   </footer>
+   <!-- ======= End Footer Section ======= -->
+
+
+   <script src="../js/script.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"crossorigin="anonymous"></script>
+  </body>
+</html>

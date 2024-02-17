@@ -1,0 +1,385 @@
+html{
+  height: 100%;
+}
+
+body {
+  background-image: url(../img/homepage\ fish.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+  padding-bottom: 6.74rem;
+}
+
+/* Navigation Bar */
+header{
+  background-image: radial-gradient(rgba(65, 74, 76, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+.navbar-brand, 
+.text-primary { 
+  color: white !important;
+  font-weight: 700;
+  font-size: 18px;
+  
+}
+
+.container-fluid img{
+  width: 45px;
+  border-radius: 50%;
+
+}
+
+.nav-link{
+  color: white !important;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.nav-link{
+  color: white !important;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+#nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  font-size: 15px;
+  font-weight: 500;
+  background-image: radial-gradient(rgba(65, 74, 76, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+#nav img {
+  width: 45px;
+  border-radius: 50%;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  display: inline-block;
+  position: relative;
+}
+
+nav ul li a {
+  display: block;
+  padding: 10px 30px;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav ul li:hover {
+  background: #cb3401;
+}
+
+nav ul li ul.dropdown {
+  width: 100%;
+  background: black;
+  position: absolute;
+  z-index: 999;
+  display: none;
+}
+
+nav ul li:hover ul.dropdown {
+  display: block;
+}
+/* /// End of Navigation Bar /// */
+
+
+/* Search Bar */
+.search {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 10px auto 0;
+  color: #fff;
+  padding-top: 30px;
+  border: none;
+  text-decoration: none;
+}
+
+.search input[type="text"] {
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  outline: none;
+  position: relative;
+  text-decoration: none;
+}
+
+#autocompleteContainer {
+  position: absolute;
+  width: calc(33% - 20px);
+  top: calc(100% + 10px); 
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  left: 50;
+  top: 100%;
+  text-decoration: none;
+  border: none;
+}
+
+.autocomplete-item {
+  padding: 10px;
+  cursor: pointer;
+  color: #000;
+}
+
+.autocomplete-item:hover {
+  background-color: #f0f0f0;
+}
+
+.search input::placeholder {
+  color: #555;
+}
+/* /// End of Search Bar /// */
+
+
+/* Content Homepage */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
+  width: 10px;
+  margin: 0;
+  color: white;
+  position: relative;
+}
+
+.container-fluid h1 {
+  font-size: 70px;
+  padding-left: 58px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  letter-spacing: 2px;
+}
+
+.container-fluid .lead {
+  color: white;
+  padding-left: 60px;
+  letter-spacing: 1px;
+  line-height: 20px;
+  font-size: 17px;
+  text-align: left;
+}
+/* /// End of Content Homepage /// */
+
+/* Explore btn*/
+.text-center .cn {
+  width: 160px;
+  height: 40px;
+  background: #cb3401;
+  border: none;
+  margin-left: 60px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .4s ease;
+}
+
+.text-center .cn a {
+  text-decoration: none;
+  color: white;
+  transition: .3s ease;
+
+}
+
+.text-center .cn:hover {
+  background-color: white;
+}
+
+.text-center .cn:hover a {
+  color: black;
+}
+/* /// End of Explore btn /// */
+
+
+/* Homepage Most Popular */
+.image-container {
+  float: right;
+  margin: 10px;
+  margin-bottom: 40px;
+  overflow: hidden;
+  text-decoration: none;
+  margin-top: 12vh;
+}
+
+.image-container a {
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  transition: transform 0.3s;
+  text-decoration: none;
+}
+
+.image-container a:hover {
+  transform: scale(1.1);
+}
+
+.image-container a img {
+  width: 250px;
+  height: 250px;
+  border-radius: 10%;
+  overflow: hidden;
+  border: 5px solid #cb3401;
+}
+
+.image-container a p {
+  color: white;
+  text-align: center;
+  margin: 5px 0;
+  text-decoration: none;
+}
+
+.image-container p {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+}
+/* /// End of Homepage Most Popular /// */
+
+
+/* Bottom Section */
+.bottom-section {
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  min-height: 50vh;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 290px;
+}
+
+.bottom-container {
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  min-width: 320px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-container h2 {
+  color: #cb3401;
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.abouttext {
+  font-size: 15px;
+  color: white;
+  line-height: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section {
+  width: 100%;
+  padding: 10px;
+  text-align: justify;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.section h4 {
+  color: #cb3401;
+}
+
+.section p {
+  color: white;
+  line-height: 1.5;
+  padding-right: 20px
+}
+/* /// End of Bottom Section /// */
+
+
+/* Footer Section */
+footer {
+  background: #cb3401;
+  color: #fff;
+  text-align: center;
+  width: 100vw;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  margin-top: auto;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer-section h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 3rem;
+}
+
+.footer-section .text {
+  max-width: 500px;
+  margin: 10px auto;
+  line-height: 20px;
+  font-size: 14px;
+}
+
+.footer-bottom {
+  background: #cb3401;
+  padding: 40px 0;
+  margin-bottom: 0;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.footer-bottom span {
+  opacity: 0.4;
+  font-weight: 200;
+}
+/* /// End of Footer Section /// */
